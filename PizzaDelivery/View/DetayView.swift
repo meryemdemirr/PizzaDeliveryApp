@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetayView: View {
     
-    var kategori = Categories(id: 1, isim: "Pizza", gorsel: "pizza", fiyat: 180)
+    var kategori = Categories(id: 1, isim: "Pizza", gorsel: "pizza", fiyat: 180, yenifiyat: nil)
     
     var body: some View {
         VStack {

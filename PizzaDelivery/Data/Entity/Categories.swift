@@ -12,12 +12,14 @@ class Categories : Identifiable{
     let isim: String
     let gorsel: String
     let fiyat: Int
+    let yenifiyat: Int?
     
-    init(id: Int, isim: String, gorsel: String, fiyat: Int ) {
+    init(id: Int, isim: String, gorsel: String, fiyat: Int, yenifiyat: Int?) {
         self.id = id
         self.isim = isim
         self.gorsel = gorsel
         self.fiyat = fiyat
+        self.yenifiyat = yenifiyat
     }
 }
 

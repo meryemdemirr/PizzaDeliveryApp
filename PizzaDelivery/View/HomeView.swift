@@ -15,7 +15,7 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 20) {
+            VStack {
                 ScrollView {
                     HStack{
                         
@@ -29,17 +29,22 @@ struct HomeView: View {
                         
                         Spacer()
                         
-                        Image("sepet")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .padding(.trailing,15)
+                        NavigationLink(destination: CartView()) {
+                            Image("sepet")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .padding(.trailing, 15)
+                        }
+                        
                     }
+                    .padding(.bottom)
                     
                     VStack(spacing: 15) {
                         Text("Extra Discount")
                             .font(.headline)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 15)
+                        
                         
                         Image("pizzasale")
                             .resizable()
@@ -49,7 +54,7 @@ struct HomeView: View {
                     }
                     .padding(.bottom)
                     
-                    VStack {
+                    VStack(spacing: 15) {
                         Text("Categories")
                             .font(.headline)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -57,16 +62,17 @@ struct HomeView: View {
                         
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 15) {
-                                CategoriesButton(kategori: .init(id: 1, isim: "Pizza", gorsel: "pizza", fiyat: 180))
-                                CategoriesButton(kategori: .init(id: 2, isim: "Burger", gorsel: "burger", fiyat: 220))
-                                CategoriesButton(kategori: .init(id: 3, isim: "Pasta", gorsel: "pasta", fiyat: 200))
+                                CategoriesButton(kategori: .init(id: 1, isim: "Pizza", gorsel: "pizza", fiyat: 180, yenifiyat: nil))
+                                CategoriesButton(kategori: .init(id: 2, isim: "Burger", gorsel: "burger", fiyat: 220, yenifiyat: nil))
+                                CategoriesButton(kategori: .init(id: 3, isim: "Pasta", gorsel: "pasta", fiyat: 200, yenifiyat: nil))
                             }
                             .padding(.horizontal)
                         }
                     }
+                    .padding(.bottom)
                     
                     
-                    VStack(spacing: 20) {
+                    VStack(spacing: 20){
                         Text("Popular Foods")
                             .font(.headline)
                             .frame(maxWidth: .infinity, alignment: .leading)

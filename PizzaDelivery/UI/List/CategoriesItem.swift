@@ -8,6 +8,7 @@ import SwiftUI
 
 struct CategoriesItem: View {
     var kategori: Categories
+    @State private var showToast = false
     
     var body: some View {
         VStack(spacing: 10) {
@@ -25,14 +26,35 @@ struct CategoriesItem: View {
             
             // Fiyat + Buton
             HStack {
-                Text("\(kategori.fiyat) ₺")
-                    .font(.subheadline)
-                    .foregroundColor(.black)
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    if let yenifiyat = kategori.yenifiyat {
+                                        // Eski fiyat
+                        Text("\(kategori.fiyat) ₺")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .strikethrough(true, color: .gray)
+                                        
+                                // İndirimli fiyat
+                        Text("\(yenifiyat) ₺")
+                            .font(.subheadline)
+                            .foregroundColor(.red)
+                            .bold()
+                    } else {
+                                    // Normal fiyat
+                        Text("\(kategori.fiyat) ₺")
+                            .font(.subheadline)
+                            .foregroundColor(.black)
+                            .bold()
+                    }
+                }
+
+               
                 
                 Spacer()
                 
                 Button(action: {
-                    print("\(kategori.isim) sepete eklendi 🛒")
+                   print("sepete eklendi")
                 }) {
                     Text("Sepete Ekle")
                         .font(.caption)
@@ -53,5 +75,5 @@ struct CategoriesItem: View {
 }
 
 #Preview {
-    CategoriesItem(kategori: Categories(id: 1, isim: "Cheese Pizza", gorsel: "pizza", fiyat: 100))
+    CategoriesItem(kategori: Categories(id: 1, isim: "Cheese Pizza", gorsel: "pizza", fiyat: 100, yenifiyat: nil))
 }
