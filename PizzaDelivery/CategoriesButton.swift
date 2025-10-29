@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoriesButton: View {
-    var kategori : CategoriesItem
+    var kategori : Categories
     @State private var selected = false
     
     var body: some View {
@@ -27,7 +27,7 @@ struct CategoriesButton: View {
             .background(Color.white.opacity(0.1))
                     .onTapGesture {
                         selected.toggle()// tıklayınca renk değişir
-                        NavigationLink(destination: ContentView()){
+                        NavigationLink(destination: HomeView()){
                             
                         }
                     }
@@ -37,5 +37,5 @@ struct CategoriesButton: View {
 }
 
 #Preview {
-    CategoriesButton(kategori: .init(isim: "Pizza", gorsel: "pizza"))
+    CategoriesButton(kategori: .init(id: 1, isim: "Pizza", gorsel: "pizza", fiyat: 10))
 }
