@@ -4,39 +4,54 @@
 //
 //  Created by Meryem Demir on 28.10.2025.
 //
-
 import SwiftUI
 
 struct CategoriesItem: View {
-    var kategori = Categories(id: 1, isim: "Cheese Pizza", gorsel: "cheese pizza", fiyat: 100)
-    var genislik = 0.0
+    var kategori: Categories
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
+            // Ürün görseli
             Image(kategori.gorsel)
                 .resizable()
-                .frame(width: genislik)
+                .scaledToFit()
+                .frame(height: 130)
+                .cornerRadius(10)
             
+            // Ürün ismi
+            Text(kategori.isim)
+                .font(.headline)
+                .foregroundColor(.black)
+            
+            // Fiyat + Buton
             HStack {
                 Text("\(kategori.fiyat) ₺")
-                    .font(.system(size: 24))
+                    .font(.subheadline)
                     .foregroundColor(.black)
                 
-                Text("Sepete Ekle")
-                    .padding()
-                    .font(.system(size: 24))
-                    .foregroundColor(.white)
-                    .background(.indigo)
-                    .cornerRadius(8)
-                    .padding(.bottom,5)
-                onTapGesture {
-                    print("\(kategori.isim) sepete eklendi")
+                Spacer()
+                
+                Button(action: {
+                    print("\(kategori.isim) sepete eklendi 🛒")
+                }) {
+                    Text("Sepete Ekle")
+                        .font(.caption)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 6)
+                        .foregroundColor(.white)
+                        .background(Color("color"))
+                        .cornerRadius(8)
                 }
             }
-        }.background(Rectangle().fill(Color.white).shadow(radius: 3))
+        }
+        .padding()
+        .frame(maxWidth: .infinity)
+        .background(Color.white)
+        .cornerRadius(15)
+        .shadow(radius: 3)
     }
 }
 
 #Preview {
-    CategoriesItem()
+    CategoriesItem(kategori: Categories(id: 1, isim: "Cheese Pizza", gorsel: "pizza", fiyat: 100))
 }

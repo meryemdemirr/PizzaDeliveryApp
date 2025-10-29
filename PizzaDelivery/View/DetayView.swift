@@ -8,7 +8,21 @@
 import SwiftUI
 
 struct DetayView: View {
+    
+    var kategori = Categories(id: 1, isim: "Pizza", gorsel: "pizza", fiyat: 180)
+    
     var body: some View {
+        VStack {
+            // ürünün detayları yazılacak
+            //düzeltme
+            
+            Image(kategori.gorsel)
+                .resizable()
+                .frame(width: 50, height: 50)
+            Text("\(kategori.fiyat)")
+                .font(.system(size: 22))
+        }
+        .navigationTitle(kategori.isim)
         
     }
 }
