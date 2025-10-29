@@ -13,14 +13,23 @@ class Categories : Identifiable{
     let gorsel: String
     let fiyat: Int
     let yenifiyat: Int?
+    let rating: Double
     
-    init(id: Int, isim: String, gorsel: String, fiyat: Int, yenifiyat: Int?) {
+    var ratingText: String {
+            if rating == floor(rating) {
+                return "\(Int(rating))"
+            } else {
+                return String(format: "%.1f", rating)
+            }
+        }
+    
+    init(id: Int, isim: String, gorsel: String, fiyat: Int, yenifiyat: Int?, rating: Double) {
         self.id = id
         self.isim = isim
         self.gorsel = gorsel
         self.fiyat = fiyat
         self.yenifiyat = yenifiyat
-       
+        self.rating = rating
     }
 }
 

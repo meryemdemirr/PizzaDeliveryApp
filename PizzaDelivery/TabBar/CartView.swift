@@ -10,12 +10,12 @@ import SwiftUI
 struct CartView: View {
     
     @EnvironmentObject var cartVM: CartViewModel
-    
+   
     var body: some View {
         VStack {
             Text("My Orders")
                 .font(.headline)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.leading,10)
                 
             ScrollView {
@@ -27,9 +27,7 @@ struct CartView: View {
                 .padding(.horizontal, 40)
                 .padding(.bottom, 20)
             }
-            
         }
-        
     }
 }
 

@@ -62,7 +62,7 @@ struct CategoriesItem: View {
                         .padding(.horizontal, 10)
                         .padding(.vertical, 6)
                         .foregroundColor(.white)
-                        .background(Color("color"))
+                        .background(Color("colorr"))
                         .cornerRadius(8)
                 }
             }
@@ -76,6 +76,6 @@ struct CategoriesItem: View {
 }
 
 #Preview {
-    CategoriesItem(kategori: Categories(id: 1, isim: "Cheese Pizza", gorsel: "pizza", fiyat: 100, yenifiyat: nil))
+    CategoriesItem(kategori: Categories(id: 1, isim: "Cheese Pizza", gorsel: "pizza", fiyat: 100, yenifiyat: nil, rating: 2.2))
         .environmentObject(CartViewModel())
 }

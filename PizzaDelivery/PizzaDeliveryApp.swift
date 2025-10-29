@@ -13,7 +13,7 @@ struct PizzaDeliveryApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            TabBarView()
                 .environmentObject(cartVM)
         }
     }

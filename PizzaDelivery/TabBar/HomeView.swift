@@ -12,6 +12,7 @@ struct HomeView: View {
     @State private var searchText = ""
     @ObservedObject private var viewModel = HomeViewModel()
     @EnvironmentObject var cartVM: CartViewModel
+    var stepper = DetailView(stepperDurum: 1)
     
     
     var body: some View {
@@ -63,9 +64,9 @@ struct HomeView: View {
                         
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 15) {
-                                CategoriesButton(kategori: .init(id: 1, isim: "Pizza", gorsel: "pizza", fiyat: 180, yenifiyat: nil))
-                                CategoriesButton(kategori: .init(id: 2, isim: "Burger", gorsel: "burger", fiyat: 220, yenifiyat: nil))
-                                CategoriesButton(kategori: .init(id: 3, isim: "Pasta", gorsel: "pasta", fiyat: 200, yenifiyat: nil))
+                                CategoriesButton(kategori: .init(id: 1, isim: "Pizza", gorsel: "pizza", fiyat: 180, yenifiyat: nil, rating: 4.9))
+                                CategoriesButton(kategori: .init(id: 2, isim: "Burger", gorsel: "burger", fiyat: 220, yenifiyat: nil, rating: 3.9))
+                                CategoriesButton(kategori: .init(id: 3, isim: "Pasta", gorsel: "pasta", fiyat: 200, yenifiyat: nil, rating: 4.2))
                             }
                             .padding(.horizontal)
                         }
@@ -82,9 +83,14 @@ struct HomeView: View {
                        
                         LazyVGrid(columns: [GridItem(.flexible(),spacing: 20), GridItem(.flexible(), spacing: 20)], spacing: 20) {
                                 ForEach(viewModel.kategorilerListesi) { kategori in
-                                    CategoriesItem(kategori: kategori)
-                                        .environmentObject(cartVM)
+                                    NavigationLink {
+                                        DetailView(kategori: kategori, stepperDurum: 1)
+                                    } label: {
+                                        CategoriesItem(kategori: kategori) 
+                                    }
+                                        
                             }
+                                
                         }
                         .padding(.horizontal, 10)
                         .padding(.bottom, 20)

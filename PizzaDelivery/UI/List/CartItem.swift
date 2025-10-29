@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CartItem: View {
     var kategori: Categories
+    @State private var quantity = 1
+    
     
     var body: some View {
         HStack {
@@ -27,7 +29,11 @@ struct CartItem: View {
                     .font(.subheadline)
                     .foregroundColor(.black)
                     .bold()
+                
+                Quantity(scale: 0.8, quantity: $quantity)
+                    
             }
+            
         }
         .padding()
         .frame(maxWidth: .infinity)
@@ -38,5 +44,5 @@ struct CartItem: View {
 }
 
 #Preview {
-    CartItem(kategori: Categories(id: 1, isim: "a", gorsel: "burger", fiyat: 100, yenifiyat: nil))
+    CartItem(kategori: Categories(id: 1, isim: "a", gorsel: "burger", fiyat: 100, yenifiyat: nil, rating: 4.1))
 }
