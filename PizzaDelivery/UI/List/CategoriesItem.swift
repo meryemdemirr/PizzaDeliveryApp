@@ -9,6 +9,7 @@ import SwiftUI
 struct CategoriesItem: View {
     var kategori: Categories
     @State private var showToast = false
+    @EnvironmentObject var cartVM: CartViewModel
     
     var body: some View {
         VStack(spacing: 10) {
@@ -54,7 +55,7 @@ struct CategoriesItem: View {
                 Spacer()
                 
                 Button(action: {
-                   print("sepete eklendi")
+                    cartVM.add(product: kategori)
                 }) {
                     Text("Sepete Ekle")
                         .font(.caption)
@@ -76,4 +77,5 @@ struct CategoriesItem: View {
 
 #Preview {
     CategoriesItem(kategori: Categories(id: 1, isim: "Cheese Pizza", gorsel: "pizza", fiyat: 100, yenifiyat: nil))
+        .environmentObject(CartViewModel())
 }

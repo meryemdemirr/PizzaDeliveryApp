@@ -8,11 +8,32 @@
 import SwiftUI
 
 struct CartView: View {
+    
+    @EnvironmentObject var cartVM: CartViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("My Orders")
+                .font(.headline)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading,10)
+                
+            ScrollView {
+                LazyVGrid(columns: [GridItem(.flexible())], spacing: 10) {
+                    ForEach(cartVM.products){ product in
+                        CartItem(kategori: product)
+                    }
+                }
+                .padding(.horizontal, 40)
+                .padding(.bottom, 20)
+            }
+            
+        }
+        
     }
 }
 
 #Preview {
     CartView()
+        .environmentObject(CartViewModel())
 }

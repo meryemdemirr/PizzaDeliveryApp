@@ -20,6 +20,7 @@ class Categories : Identifiable{
         self.gorsel = gorsel
         self.fiyat = fiyat
         self.yenifiyat = yenifiyat
+       
     }
 }
 

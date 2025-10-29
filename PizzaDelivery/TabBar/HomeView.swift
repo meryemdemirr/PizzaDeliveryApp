@@ -11,6 +11,7 @@ struct HomeView: View {
     
     @State private var searchText = ""
     @ObservedObject private var viewModel = HomeViewModel()
+    @EnvironmentObject var cartVM: CartViewModel
     
     
     var body: some View {
@@ -82,6 +83,7 @@ struct HomeView: View {
                         LazyVGrid(columns: [GridItem(.flexible(),spacing: 20), GridItem(.flexible(), spacing: 20)], spacing: 20) {
                                 ForEach(viewModel.kategorilerListesi) { kategori in
                                     CategoriesItem(kategori: kategori)
+                                        .environmentObject(cartVM)
                             }
                         }
                         .padding(.horizontal, 10)
@@ -101,4 +103,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environmentObject(CartViewModel())
 }
