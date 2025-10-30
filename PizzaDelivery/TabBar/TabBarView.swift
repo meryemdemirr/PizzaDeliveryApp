@@ -15,6 +15,11 @@ struct TabBarView: View {
                     Image(systemName: "house")
                 }
             
+            ListView()
+                .tabItem {
+                    Image(systemName: "list.bullet")
+                }
+            
             CartView()
                 .tabItem {
                     Image(systemName: "cart")

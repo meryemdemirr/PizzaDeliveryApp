@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    @State private var searchText = ""
         @ObservedObject private var viewModel = HomeViewModel()
         @EnvironmentObject var cartVM: CartViewModel
         
@@ -61,7 +59,7 @@ struct HomeView: View {
                                 HStack(spacing: 15) {
                                     CategoriesButton(kategori: .init(id: 1, isim: "Pizza", gorsel: "pizza", fiyat: 180, yenifiyat: nil, rating: 4.9, description: "A classic cheese pizza topped with a rich tomato sauce and a perfect blend of melted mozzarella. Crispy on the outside, soft on the inside — simple yet delicious."))
                                     CategoriesButton(kategori: .init(id: 2, isim: "Burger", gorsel: "burger", fiyat: 220, yenifiyat: nil, rating: 3.9, description: "A crispy chicken fillet served with fresh lettuce, tomato, and creamy mayo in a soft toasted bun — a perfect choice for chicken lovers."))
-                                    CategoriesButton(kategori: .init(id: 3, isim: "Pasta", gorsel: "pasta", fiyat: 200, yenifiyat: nil, rating: 4.2, description: "Delicious pasta tossed in a rich tomato sauce and topped with parmesan cheese — a simple yet comforting classic.”"))
+                                    CategoriesButton(kategori: .init(id: 3, isim: "Pasta", gorsel: "pasta", fiyat: 200, yenifiyat: nil, rating: 4.2, description: "Delicious pasta tossed in a rich tomato sauce and topped with parmesan cheese — a simple yet comforting classic."))
                                 }
                                 .padding(.horizontal)
                             }
