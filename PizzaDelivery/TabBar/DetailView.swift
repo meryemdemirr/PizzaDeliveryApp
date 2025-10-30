@@ -72,7 +72,7 @@ struct DetailView: View {
                             .background(Color("colorr"))
                             .cornerRadius(10)
                     }
-                    .padding(.top, 100)
+                    .padding(.top, 50)
                 }
             }
             .frame(maxWidth: .infinity)
