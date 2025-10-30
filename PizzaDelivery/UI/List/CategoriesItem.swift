@@ -76,6 +76,6 @@ struct CategoriesItem: View {
 }
 
 #Preview {
-    CategoriesItem(kategori: Categories(id: 1, isim: "Cheese Pizza", gorsel: "pizza", fiyat: 100, yenifiyat: nil, rating: 2.2))
+    CategoriesItem(kategori: Categories(id: 1, isim: "Cheese Pizza", gorsel: "pizza", fiyat: 100, yenifiyat: nil, rating: 2.2, description: ""))
         .environmentObject(CartViewModel())
 }

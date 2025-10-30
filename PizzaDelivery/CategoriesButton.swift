@@ -37,5 +37,5 @@ struct CategoriesButton: View {
 }
 
 #Preview {
-    CategoriesButton(kategori: .init(id: 1, isim: "Pizza", gorsel: "pizza", fiyat: 10, yenifiyat: nil, rating: 3.3))
+    CategoriesButton(kategori: .init(id: 1, isim: "Pizza", gorsel: "pizza", fiyat: 10, yenifiyat: nil, rating: 3.3, description: ""))
 }

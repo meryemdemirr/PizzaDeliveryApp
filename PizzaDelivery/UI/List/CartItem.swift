@@ -44,5 +44,5 @@ struct CartItem: View {
 }
 
 #Preview {
-    CartItem(kategori: Categories(id: 1, isim: "a", gorsel: "burger", fiyat: 100, yenifiyat: nil, rating: 4.1))
+    CartItem(kategori: Categories(id: 1, isim: "a", gorsel: "burger", fiyat: 100, yenifiyat: nil, rating: 4.1, description: ""))
 }

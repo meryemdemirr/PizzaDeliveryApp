@@ -14,6 +14,7 @@ class Categories : Identifiable{
     let fiyat: Int
     let yenifiyat: Int?
     let rating: Double
+    let description : String
     
     var ratingText: String {
             if rating == floor(rating) {
@@ -23,13 +24,14 @@ class Categories : Identifiable{
             }
         }
     
-    init(id: Int, isim: String, gorsel: String, fiyat: Int, yenifiyat: Int?, rating: Double) {
+    init(id: Int, isim: String, gorsel: String, fiyat: Int, yenifiyat: Int?, rating: Double, description: String) {
         self.id = id
         self.isim = isim
         self.gorsel = gorsel
         self.fiyat = fiyat
         self.yenifiyat = yenifiyat
         self.rating = rating
+        self.description = description
     }
 }
 
