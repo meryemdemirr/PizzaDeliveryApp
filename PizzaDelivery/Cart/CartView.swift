@@ -18,15 +18,33 @@ struct CartView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.leading,10)
                 
-            ScrollView {
+            
+            List {
+                ForEach(cartVM.products) { product in
+                    CartItem(kategori: product)
+                }
+                .onDelete(perform: sil) // 👈 Kaydırarak silme aktif
+            }
+            
+            
+           /* ScrollView {
                 LazyVGrid(columns: [GridItem(.flexible())], spacing: 10) {
                     ForEach(cartVM.products){ product in
                         CartItem(kategori: product)
                     }
+                    .onDelete(perform: sil)
                 }
                 .padding(.horizontal, 40)
                 .padding(.bottom, 20)
-            }
+            }*/
+        }
+        
+    }
+    func sil(at offsets: IndexSet) {
+        if let index = offsets.first {
+            let product = cartVM.products[index]
+            cartVM.products.remove(at: index) // Görsel olarak listeden sil
+            cartVM.sil(id: product.id)        // id’sini gönder (fonksiyonda print yapıyor)
         }
     }
 }

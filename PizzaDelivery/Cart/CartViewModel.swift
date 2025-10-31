@@ -13,4 +13,8 @@ class CartViewModel : ObservableObject {
     func add(product : Categories) {
         products.append(product)
     }
+    
+    func sil(id : Int) {
+        print("\(id)")
+    }
 }
